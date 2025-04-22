@@ -6,19 +6,30 @@
 
 <style>
     .navBar{
-        background-color: blue;
+        
         display: flex;
         flex-flow: row;
+        justify-content: center;
     }
 
     a{
-        background-color: white;
+        background-color: red;
+        color: white;
+        margin: 3px;
+        padding: 3px;
         text-decoration: none;
         position: relative;
+        border: solid;
+        border-color: red;
+        border-width: 2px;
+        font-family: 'Courier New', Courier, monospace;
+        text-transform: uppercase;
     }
 
     a:hover{
-        color: orange;
+        
+        background-color: white;
+        color: red;
         cursor: pointer;
     }
 </style>

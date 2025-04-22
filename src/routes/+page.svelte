@@ -158,7 +158,8 @@
 
 	h1,h3{
 		text-align: center;
-	 color: #0B0A07;
+	 	color: red;
+		font-family:'Courier New', Courier, monospace;
 	}
 
 	
@@ -166,14 +167,15 @@
 	.container{
 		display: flex;
 		flex-flow: row;
-		height: 100dvh;
+		height: 70vh;
+		margin: 0dvh 5dvh 0dvh 5dvh;
 	}
 
 	.containerBoxes{
 		flex-grow: 1;
-		background-color: #5E3023;
 		border: solid;
-		
+		border-width: 2px;
+		border-color: red;
 		display: flex;
 		flex-flow: column;
 		margin: 0.5dvh;
@@ -182,23 +184,48 @@
 	.column{
 		display: flex;
 		flex-flow: column;
-		background-color: whitesmoke;
 		margin: 1%;
+		overflow: auto;
+		flex-grow: 1;
 	}
 
 	.row{
 		display: flex;
 		flex-flow: row;
 		width: 100%;
+		align-items: center;
 		
 		
 	}
 
-
+	input{
+		align-self: auto;
+		margin: 5px;
+		flex-grow: 3;
+	}
 
 	button{
-		size: 100%;
+		margin: 5px;
+		border-radius: 0;
+		color: white;
+		background-color: red;
+		border: solid;
+		border-color: red;
+		border-width: 2px;
+		font-family:'Courier New', Courier, monospace;
+		
 	}
+
+	button:active{
+		color: red;
+		background-color: white;
+	}
+
+	button:hover{
+		color: red;
+		background-color: white;
+	}
+
 
 	
 
