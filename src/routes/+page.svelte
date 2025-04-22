@@ -2,6 +2,8 @@
     import { get } from "svelte/store";
 	import {onMount} from 'svelte';
 
+    import NavBar from "./navBar.svelte";
+
 	type mealIngredient = {
 		mealId: number;
 		ingredientId: number;
@@ -103,6 +105,7 @@
 	Meal Planner Application
 </h1>
 
+<NavBar />
 
 <section class="container">
 	
