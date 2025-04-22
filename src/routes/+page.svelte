@@ -202,9 +202,16 @@
 		align-self: auto;
 		margin: 5px;
 		flex-grow: 3;
+		color: red;
+		border: solid;
+		border-width: 2px;
+		border-color: red;
+		font-family: 'Courier New', Courier, monospace;
+		outline: none;
 	}
 
 	button{
+		position: relative;
 		margin: 5px;
 		border-radius: 0;
 		color: white;
@@ -213,12 +220,13 @@
 		border-color: red;
 		border-width: 2px;
 		font-family:'Courier New', Courier, monospace;
-		
+
 	}
 
 	button:active{
 		color: red;
 		background-color: white;
+		top: 2px;
 	}
 
 	button:hover{
