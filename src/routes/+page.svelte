@@ -4,20 +4,9 @@
 
     import NavBar from "./navBar.svelte";
 
-	type mealIngredient = {
-		mealId: number;
-		ingredientId: number;
-		ingredientName: string;
-		ammount: number;
-		type: string
-	}
+	import type {mealIngredient} from './Types.ts';
+	import type {meal} from './Types.ts';
 
-	type meal = {
-		id: number;
-		name: string;
-		type: string;
-		mealIngredients: mealIngredient[]
-	}
 	
 	var Meals:meal[] = $state([]);
 	var SerachMeals:meal[]  = $state([]);
@@ -27,16 +16,24 @@
 	const getMeals = async() =>{
 		const response = await fetch('http://localhost:8080/GetAllMeals');
 		Meals = await response.json();
+		SerachMeals = Meals
 	}
 
 	function serachMeals(){
-		var searchString = (<HTMLInputElement>document.getElementById('mealSearch')).value
-		SerachMeals.length = 0;
-			Meals.forEach(meal => {
-				if(meal.name.toLowerCase().includes(searchString.toLowerCase())){
-					SerachMeals.push(meal);
-				}
-			});
+		var searchString = (<HTMLInputElement>document.getElementById('mealSearch')).value;
+
+		if (!searchString){
+			SerachMeals = Meals;
+			return;
+        }
+
+		SerachMeals = [];
+
+		Meals.forEach(meal => {
+			if(meal.name.toLowerCase().includes(searchString.toLowerCase())){
+				SerachMeals.push(meal);
+			}
+		});
 	}
 
 	function selectMeal(mealIndex:number){
@@ -96,6 +93,8 @@
 	})
 </script>
 
+
+
 <svelte:head>
 	<title>Home</title>
 	<meta name="description" content="Svelte demo app" />
@@ -154,88 +153,5 @@
 </section>
 
 <style>
-	
-
-	h1,h3{
-		text-align: center;
-	 	color: red;
-		font-family:'Courier New', Courier, monospace;
-	}
-
-	
-
-	.container{
-		display: flex;
-		flex-flow: row;
-		height: 70vh;
-		margin: 0dvh 5dvh 0dvh 5dvh;
-	}
-
-	.containerBoxes{
-		flex-grow: 1;
-		border: solid;
-		border-width: 2px;
-		border-color: red;
-		display: flex;
-		flex-flow: column;
-		margin: 0.5dvh;
-	}
-
-	.column{
-		display: flex;
-		flex-flow: column;
-		margin: 1%;
-		overflow: auto;
-		flex-grow: 1;
-	}
-
-	.row{
-		display: flex;
-		flex-flow: row;
-		width: 100%;
-		align-items: center;
-		
-		
-	}
-
-	input{
-		align-self: auto;
-		margin: 5px;
-		flex-grow: 3;
-		color: red;
-		border: solid;
-		border-width: 2px;
-		border-color: red;
-		font-family: 'Courier New', Courier, monospace;
-		outline: none;
-	}
-
-	button{
-		position: relative;
-		margin: 5px;
-		border-radius: 0;
-		color: white;
-		background-color: red;
-		border: solid;
-		border-color: red;
-		border-width: 2px;
-		font-family:'Courier New', Courier, monospace;
-
-	}
-
-	button:active{
-		color: red;
-		background-color: white;
-		top: 2px;
-	}
-
-	button:hover{
-		color: red;
-		background-color: white;
-	}
-
-
-	
-
-
+	@import 'style.css';
 </style>
