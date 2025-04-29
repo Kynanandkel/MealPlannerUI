@@ -85,8 +85,6 @@
     onMount(()=>{
         getIngredients();
     })
-
-    console.log($inspect(Ingredients))
 </script>
 
 <NavBar/>
