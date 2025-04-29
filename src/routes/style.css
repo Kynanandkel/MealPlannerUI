@@ -12,7 +12,15 @@ p{
     font-family:'Courier New', Courier, monospace;
 }
 
+th{
+    color: red;
+    font-family:'Courier New', Courier, monospace;  
+    align-items: start;  
+}
 
+td{
+    align-items: center;
+}
 
 .container{
     display: flex;
